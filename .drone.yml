@@ -342,6 +342,120 @@ trigger:
     event: push
 ---
 kind: pipeline
+name: 12-openj9-alpine
+
+steps:
+  - name: docker
+    image: plugins/docker
+    settings:
+      repo: djcass44/adoptopenjdk-spring-base
+      dockerfile: 12-openj9/alpine/Dockerfile
+      tags:
+        - 12-openj9-alpine
+      username:
+        from_secret: DOCKER_USERNAME
+      password:
+        from_secret: DOCKER_PASSWORD
+trigger:
+  when:
+    event: push
+---
+kind: pipeline
+name: 12-openj9-alpine-slim
+
+steps:
+  - name: docker
+    image: plugins/docker
+    settings:
+      repo: djcass44/adoptopenjdk-spring-base
+      dockerfile: 12-openj9/alpine/slim/Dockerfile
+      tags:
+        - 12-openj9-alpine-slim
+      username:
+        from_secret: DOCKER_USERNAME
+      password:
+        from_secret: DOCKER_PASSWORD
+trigger:
+  when:
+    event: push
+---
+kind: pipeline
+name: 12-openj9-alpine-jre
+
+steps:
+  - name: docker
+    image: plugins/docker
+    settings:
+      repo: djcass44/adoptopenjdk-spring-base
+      dockerfile: 12-openj9/alpine/jre/Dockerfile
+      tags:
+        - 12-openj9-alpine-jre
+      username:
+        from_secret: DOCKER_USERNAME
+      password:
+        from_secret: DOCKER_PASSWORD
+trigger:
+  when:
+    event: push
+---
+kind: pipeline
+name: 12-openj9-debian
+
+steps:
+  - name: docker
+    image: plugins/docker
+    settings:
+      repo: djcass44/adoptopenjdk-spring-base
+      dockerfile: 12-openj9/debian/Dockerfile
+      tags:
+        - 12-openj9-debian
+      username:
+        from_secret: DOCKER_USERNAME
+      password:
+        from_secret: DOCKER_PASSWORD
+trigger:
+  when:
+    event: push
+---
+kind: pipeline
+name: 12-openj9-debian-slim
+
+steps:
+  - name: docker
+    image: plugins/docker
+    settings:
+      repo: djcass44/adoptopenjdk-spring-base
+      dockerfile: 12-openj9/debian/slim/Dockerfile
+      tags:
+        - 12-openj9-debian-slim
+      username:
+        from_secret: DOCKER_USERNAME
+      password:
+        from_secret: DOCKER_PASSWORD
+trigger:
+  when:
+    event: push
+---
+kind: pipeline
+name: 12-openj9-debian-jre
+
+steps:
+  - name: docker
+    image: plugins/docker
+    settings:
+      repo: djcass44/adoptopenjdk-spring-base
+      dockerfile: 12-openj9/debian/jre/Dockerfile
+      tags:
+        - 12-openj9-debian-jre
+      username:
+        from_secret: DOCKER_USERNAME
+      password:
+        from_secret: DOCKER_PASSWORD
+trigger:
+  when:
+    event: push
+---
+kind: pipeline
 name: 13-alpine
 
 steps:
@@ -447,6 +561,120 @@ steps:
       dockerfile: 13/debian/jre/Dockerfile
       tags:
         - 13-debian-jre
+      username:
+        from_secret: DOCKER_USERNAME
+      password:
+        from_secret: DOCKER_PASSWORD
+trigger:
+  when:
+    event: push
+---
+kind: pipeline
+name: 13-openj9-alpine
+
+steps:
+  - name: docker
+    image: plugins/docker
+    settings:
+      repo: djcass44/adoptopenjdk-spring-base
+      dockerfile: 13-openj9/alpine/Dockerfile
+      tags:
+        - 13-openj9-alpine
+      username:
+        from_secret: DOCKER_USERNAME
+      password:
+        from_secret: DOCKER_PASSWORD
+trigger:
+  when:
+    event: push
+---
+kind: pipeline
+name: 13-openj9-alpine-slim
+
+steps:
+  - name: docker
+    image: plugins/docker
+    settings:
+      repo: djcass44/adoptopenjdk-spring-base
+      dockerfile: 13-openj9/alpine/slim/Dockerfile
+      tags:
+        - 13-openj9-alpine-slim
+      username:
+        from_secret: DOCKER_USERNAME
+      password:
+        from_secret: DOCKER_PASSWORD
+trigger:
+  when:
+    event: push
+---
+kind: pipeline
+name: 13-openj9-alpine-jre
+
+steps:
+  - name: docker
+    image: plugins/docker
+    settings:
+      repo: djcass44/adoptopenjdk-spring-base
+      dockerfile: 13-openj9/alpine/jre/Dockerfile
+      tags:
+        - 13-openj9-alpine-jre
+      username:
+        from_secret: DOCKER_USERNAME
+      password:
+        from_secret: DOCKER_PASSWORD
+trigger:
+  when:
+    event: push
+---
+kind: pipeline
+name: 13-openj9-debian
+
+steps:
+  - name: docker
+    image: plugins/docker
+    settings:
+      repo: djcass44/adoptopenjdk-spring-base
+      dockerfile: 13-openj9/debian/Dockerfile
+      tags:
+        - 13-openj9-debian
+      username:
+        from_secret: DOCKER_USERNAME
+      password:
+        from_secret: DOCKER_PASSWORD
+trigger:
+  when:
+    event: push
+---
+kind: pipeline
+name: 13-openj9-debian-slim
+
+steps:
+  - name: docker
+    image: plugins/docker
+    settings:
+      repo: djcass44/adoptopenjdk-spring-base
+      dockerfile: 13-openj9/debian/slim/Dockerfile
+      tags:
+        - 13-openj9-debian-slim
+      username:
+        from_secret: DOCKER_USERNAME
+      password:
+        from_secret: DOCKER_PASSWORD
+trigger:
+  when:
+    event: push
+---
+kind: pipeline
+name: 13-openj9-debian-jre
+
+steps:
+  - name: docker
+    image: plugins/docker
+    settings:
+      repo: djcass44/adoptopenjdk-spring-base
+      dockerfile: 13-openj9/debian/jre/Dockerfile
+      tags:
+        - 13-openj9-debian-jre
       username:
         from_secret: DOCKER_USERNAME
       password:

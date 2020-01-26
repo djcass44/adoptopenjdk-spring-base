@@ -4,14 +4,25 @@ This repository contains the recipe for creating a number of slightly customised
 
 ## Supported tags
 
-**Releases**
+#### Releases
 
-* Java 11 - HotSpot `11-alpine-jre` [11/jre/alpine/Dockerfile.hotspot.releases.full](11/jre/alpine/Dockerfile.hotspot.releases.full)
-* Java 11 - OpenJ9 `11-j9-alpine-jre` [11/jre/alpine/Dockerfile.openj9.releases.full](11/jre/alpine/Dockerfile.openj9.releases.full)
-* Java 12 - HotSpot `12-alpine-jre` [12/jre/alpine/Dockerfile.hotspot.releases.full](12/jre/alpine/Dockerfile.hotspot.releases.full)
-* Java 12 - OpenJ9 `12-j9-alpine-jre` [12/jre/alpine/Dockerfile.openj9.releases.full](12/jre/alpine/Dockerfile.openj9.releases.full)
-* Java 13 - HotSpot `13-alpine-jre` [13/jre/alpine/Dockerfile.hotspot.releases.full](13/jre/alpine/Dockerfile.hotspot.releases.full)
-* Java 13 - OpenJ9 `13-j9-alpine-jre` [13/jre/alpine/Dockerfile.openj9.releases.full](13/jre/alpine/Dockerfile.openj9.releases.full)
+**Alpine**
+
+* Java 11 - HotSpot - Alpine `11-alpine-jre`
+* Java 11 - OpenJ9 - Alpine `11-j9-alpine-jre`
+* Java 12 - HotSpot - Alpine `12-alpine-jre`
+* Java 12 - OpenJ9 - Alpine `12-j9-alpine-jre`
+* Java 13 - HotSpot - Alpine `13-alpine-jre`
+* Java 13 - OpenJ9 - Alpine `13-j9-alpine-jre`
+
+**Debian**
+
+* Java 11 - HotSpot - Debian `11-debian-jre`
+* Java 11 - OpenJ9 - Debian `11-j9-debian-jre`
+* Java 12 - HotSpot - Debian `12-debian-jre`
+* Java 12 - OpenJ9 - Debian `12-j9-debian-jre`
+* Java 13 - HotSpot - Debian `13-debian-jre`
+* Java 13 - OpenJ9 - Debian `13-j9-debian-jre`
 
 
 Current customisations:

@@ -8,7 +8,7 @@ def dir_and_write(filename: str, data: str):
         f.write(data)
 
 
-jdks = [11, '11-openj9', 12, 13]
+jdks = [11, '11-openj9', 12, '12-openj9', 13, '13-openj9']
 distros = ['alpine', 'debian']
 
 versions = {
