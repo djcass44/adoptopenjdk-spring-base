@@ -42,8 +42,7 @@ RUN apk upgrade --no-cache -q && \\
     apk add --no-cache tomcat-native
 " > ${dest}
 
-echo "
----
+echo "---
 kind: pipeline
 name: ${version}
 
@@ -61,5 +60,4 @@ steps:
         from_secret: DOCKER_PASSWORD
 trigger:
   when:
-    event: push
-" >> .drone.yml
+    event: push" >> .drone.yml
