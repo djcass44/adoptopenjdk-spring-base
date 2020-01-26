@@ -1,0 +1,126 @@
+
+---
+kind: pipeline
+name: adoptopenjdk/openjdk11:alpine-jre
+
+steps:
+  - name: docker
+    image: plugins/docker
+    settings:
+      repo: djcass44/adoptopenjdk-spring-base
+      dockerfile: 11/jre/alpine/Dockerfile.hotspot.releases.full
+      tags:
+        - 11-alpine-jre
+      username:
+        from_secret: DOCKER_USERNAME
+      password:
+        from_secret: DOCKER_PASSWORD
+trigger:
+  when:
+    event: push
+
+
+---
+kind: pipeline
+name: adoptopenjdk/openjdk11-openj9:alpine-jre
+
+steps:
+  - name: docker
+    image: plugins/docker
+    settings:
+      repo: djcass44/adoptopenjdk-spring-base
+      dockerfile: 11/jre/alpine/Dockerfile.openj9.releases.full
+      tags:
+        - 11-j9-alpine-jre
+      username:
+        from_secret: DOCKER_USERNAME
+      password:
+        from_secret: DOCKER_PASSWORD
+trigger:
+  when:
+    event: push
+
+
+---
+kind: pipeline
+name: adoptopenjdk/openjdk12:alpine-jre
+
+steps:
+  - name: docker
+    image: plugins/docker
+    settings:
+      repo: djcass44/adoptopenjdk-spring-base
+      dockerfile: 12/jre/alpine/Dockerfile.hotspot.releases.full
+      tags:
+        - 12-alpine-jre
+      username:
+        from_secret: DOCKER_USERNAME
+      password:
+        from_secret: DOCKER_PASSWORD
+trigger:
+  when:
+    event: push
+
+
+---
+kind: pipeline
+name: adoptopenjdk/openjdk12-openj9:alpine-jre
+
+steps:
+  - name: docker
+    image: plugins/docker
+    settings:
+      repo: djcass44/adoptopenjdk-spring-base
+      dockerfile: 12/jre/alpine/Dockerfile.openj9.releases.full
+      tags:
+        - 12-j9-alpine-jre
+      username:
+        from_secret: DOCKER_USERNAME
+      password:
+        from_secret: DOCKER_PASSWORD
+trigger:
+  when:
+    event: push
+
+
+---
+kind: pipeline
+name: adoptopenjdk/openjdk13:alpine-jre
+
+steps:
+  - name: docker
+    image: plugins/docker
+    settings:
+      repo: djcass44/adoptopenjdk-spring-base
+      dockerfile: 13/jre/alpine/Dockerfile.hotspot.releases.full
+      tags:
+        - 13-alpine-jre
+      username:
+        from_secret: DOCKER_USERNAME
+      password:
+        from_secret: DOCKER_PASSWORD
+trigger:
+  when:
+    event: push
+
+
+---
+kind: pipeline
+name: adoptopenjdk/openjdk13-openj9:alpine-jre
+
+steps:
+  - name: docker
+    image: plugins/docker
+    settings:
+      repo: djcass44/adoptopenjdk-spring-base
+      dockerfile: 13/jre/alpine/Dockerfile.openj9.releases.full
+      tags:
+        - 13-j9-alpine-jre
+      username:
+        from_secret: DOCKER_USERNAME
+      password:
+        from_secret: DOCKER_PASSWORD
+trigger:
+  when:
+    event: push
+
