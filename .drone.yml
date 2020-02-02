@@ -1,5 +1,6 @@
 ---
 kind: pipeline
+type: kubernetes
 name: 11-alpine
 
 steps:
@@ -19,6 +20,7 @@ trigger:
     event: push
 ---
 kind: pipeline
+type: kubernetes
 name: 11-alpine-slim
 
 steps:
@@ -38,6 +40,7 @@ trigger:
     event: push
 ---
 kind: pipeline
+type: kubernetes
 name: 11-alpine-jre
 
 steps:
@@ -57,6 +60,7 @@ trigger:
     event: push
 ---
 kind: pipeline
+type: kubernetes
 name: 11-debian
 
 steps:
@@ -76,6 +80,7 @@ trigger:
     event: push
 ---
 kind: pipeline
+type: kubernetes
 name: 11-debian-slim
 
 steps:
@@ -95,6 +100,7 @@ trigger:
     event: push
 ---
 kind: pipeline
+type: kubernetes
 name: 11-debian-jre
 
 steps:
@@ -114,6 +120,7 @@ trigger:
     event: push
 ---
 kind: pipeline
+type: kubernetes
 name: 11-openj9-alpine
 
 steps:
@@ -133,6 +140,7 @@ trigger:
     event: push
 ---
 kind: pipeline
+type: kubernetes
 name: 11-openj9-alpine-slim
 
 steps:
@@ -152,6 +160,7 @@ trigger:
     event: push
 ---
 kind: pipeline
+type: kubernetes
 name: 11-openj9-alpine-jre
 
 steps:
@@ -171,6 +180,7 @@ trigger:
     event: push
 ---
 kind: pipeline
+type: kubernetes
 name: 11-openj9-debian
 
 steps:
@@ -190,6 +200,7 @@ trigger:
     event: push
 ---
 kind: pipeline
+type: kubernetes
 name: 11-openj9-debian-slim
 
 steps:
@@ -209,6 +220,7 @@ trigger:
     event: push
 ---
 kind: pipeline
+type: kubernetes
 name: 11-openj9-debian-jre
 
 steps:
@@ -228,6 +240,7 @@ trigger:
     event: push
 ---
 kind: pipeline
+type: kubernetes
 name: 12-alpine
 
 steps:
@@ -247,6 +260,7 @@ trigger:
     event: push
 ---
 kind: pipeline
+type: kubernetes
 name: 12-alpine-slim
 
 steps:
@@ -266,6 +280,7 @@ trigger:
     event: push
 ---
 kind: pipeline
+type: kubernetes
 name: 12-alpine-jre
 
 steps:
@@ -285,6 +300,7 @@ trigger:
     event: push
 ---
 kind: pipeline
+type: kubernetes
 name: 12-debian
 
 steps:
@@ -304,6 +320,7 @@ trigger:
     event: push
 ---
 kind: pipeline
+type: kubernetes
 name: 12-debian-slim
 
 steps:
@@ -323,6 +340,7 @@ trigger:
     event: push
 ---
 kind: pipeline
+type: kubernetes
 name: 12-debian-jre
 
 steps:
@@ -342,6 +360,7 @@ trigger:
     event: push
 ---
 kind: pipeline
+type: kubernetes
 name: 12-openj9-alpine
 
 steps:
@@ -361,6 +380,7 @@ trigger:
     event: push
 ---
 kind: pipeline
+type: kubernetes
 name: 12-openj9-alpine-slim
 
 steps:
@@ -380,6 +400,7 @@ trigger:
     event: push
 ---
 kind: pipeline
+type: kubernetes
 name: 12-openj9-alpine-jre
 
 steps:
@@ -399,6 +420,7 @@ trigger:
     event: push
 ---
 kind: pipeline
+type: kubernetes
 name: 12-openj9-debian
 
 steps:
@@ -418,6 +440,7 @@ trigger:
     event: push
 ---
 kind: pipeline
+type: kubernetes
 name: 12-openj9-debian-slim
 
 steps:
@@ -437,6 +460,7 @@ trigger:
     event: push
 ---
 kind: pipeline
+type: kubernetes
 name: 12-openj9-debian-jre
 
 steps:
@@ -456,6 +480,7 @@ trigger:
     event: push
 ---
 kind: pipeline
+type: kubernetes
 name: 13-alpine
 
 steps:
@@ -475,6 +500,7 @@ trigger:
     event: push
 ---
 kind: pipeline
+type: kubernetes
 name: 13-alpine-slim
 
 steps:
@@ -494,6 +520,7 @@ trigger:
     event: push
 ---
 kind: pipeline
+type: kubernetes
 name: 13-alpine-jre
 
 steps:
@@ -513,6 +540,7 @@ trigger:
     event: push
 ---
 kind: pipeline
+type: kubernetes
 name: 13-debian
 
 steps:
@@ -532,6 +560,7 @@ trigger:
     event: push
 ---
 kind: pipeline
+type: kubernetes
 name: 13-debian-slim
 
 steps:
@@ -551,6 +580,7 @@ trigger:
     event: push
 ---
 kind: pipeline
+type: kubernetes
 name: 13-debian-jre
 
 steps:
@@ -570,6 +600,7 @@ trigger:
     event: push
 ---
 kind: pipeline
+type: kubernetes
 name: 13-openj9-alpine
 
 steps:
@@ -589,6 +620,7 @@ trigger:
     event: push
 ---
 kind: pipeline
+type: kubernetes
 name: 13-openj9-alpine-slim
 
 steps:
@@ -608,6 +640,7 @@ trigger:
     event: push
 ---
 kind: pipeline
+type: kubernetes
 name: 13-openj9-alpine-jre
 
 steps:
@@ -627,6 +660,7 @@ trigger:
     event: push
 ---
 kind: pipeline
+type: kubernetes
 name: 13-openj9-debian
 
 steps:
@@ -646,6 +680,7 @@ trigger:
     event: push
 ---
 kind: pipeline
+type: kubernetes
 name: 13-openj9-debian-slim
 
 steps:
@@ -665,6 +700,7 @@ trigger:
     event: push
 ---
 kind: pipeline
+type: kubernetes
 name: 13-openj9-debian-jre
 
 steps:
