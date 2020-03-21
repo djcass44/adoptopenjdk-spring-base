@@ -8,7 +8,7 @@ def dir_and_write(filename: str, data: str):
         f.write(data)
 
 
-jdks = [11, '11-openj9', 12, '12-openj9', 13, '13-openj9']
+jdks = [11, '11-openj9', 12, '12-openj9', 13, '13-openj9', 14, '14-openj9']
 distros = ['alpine', 'debian']
 
 versions = {
@@ -44,29 +44,47 @@ type: kubernetes
 name: ${version}
 
 steps:
-  - name: docker
-    image: plugins/docker
+  - name: slim
+    image: harbor.v2.dcas.dev/library/drone-kaniko
+    pull: always
     settings:
-      repo: djcass44/adoptopenjdk-spring-base
-      dockerfile: ${dest}
+      registry: index.docker.io/djcass44
+      repo: adoptopenjdk-spring-base
+      cache: false
+      dockerfile: /drone/src/${slim-dest}
       tags:
-        - ${tag}
-      username:
-        from_secret: DOCKER_USERNAME
-      password:
-        from_secret: DOCKER_PASSWORD
+        - ${slim-tag}
+      authjson_docker:
+        from_secret: DOCKER_AUTH
+  - name: jre
+    image: harbor.v2.dcas.dev/library/drone-kaniko
+    pull: always
+    settings:
+      registry: index.docker.io/djcass44
+      repo: adoptopenjdk-spring-base
+      cache: false
+      dockerfile: /drone/src/${jre-dest}
+      tags:
+        - ${jre-tag}
+      authjson_docker:
+        from_secret: DOCKER_AUTH
 trigger:
   when:
     event: push
 """
 
 
-def export_build(version, dest):
+def export_build(jdk, distro):
+    version = f"{jdk}-{distro}"
     data = build.replace("${version}", version)
-    data = data.replace("${dest}", dest)
-    data = data.replace("${tag}", version)
+
+    subtypes = versions[distro]
+    for s in subtypes:
+        data = data.replace(f"${{{s}-dest}}", f"{jdk}/{distro}/{s}/Dockerfile")
+        data = data.replace(f"${{{s}-tag}}", s)
     with open(".drone.yml", "a") as f:
         f.write(data)
+
 
 cleanup = 'rm -rf '
 
@@ -92,7 +110,7 @@ for j in range(0, len(jdks)):
         dockerfile = dockerfile.replace("${version}", f"adoptopenjdk/openjdk{jdk}:{distro}")
         filename = f"{jdk}/{distro}/Dockerfile"
         dir_and_write(filename, dockerfile)
-        export_build(f"{jdk}-{distro}", filename)
+        export_build(jdk, distro)
         # make the subtypes (e.g. jre, slim)
         for v in range(0, len(distro_versions)):
             version = distro_versions[v]
@@ -100,4 +118,4 @@ for j in range(0, len(jdks)):
             dockerfile = dockerfile.replace("${version}", f"adoptopenjdk/openjdk{jdk}:{distro}-{version}")
             filename = f"{jdk}/{distro}/{version}/Dockerfile"
             dir_and_write(filename, dockerfile)
-            export_build(f"{jdk}-{distro}-{version}", filename)
+            # export_build(f"{jdk}-{distro}-{version}", filename)

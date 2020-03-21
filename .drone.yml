@@ -4,57 +4,30 @@ type: kubernetes
 name: 11-alpine
 
 steps:
-  - name: docker
-    image: plugins/docker
+  - name: slim
+    image: harbor.v2.dcas.dev/library/drone-kaniko
+    pull: always
     settings:
-      repo: djcass44/adoptopenjdk-spring-base
-      dockerfile: 11/alpine/Dockerfile
+      registry: index.docker.io/djcass44
+      repo: adoptopenjdk-spring-base
+      cache: false
+      dockerfile: /drone/src/11/alpine/slim/Dockerfile
       tags:
-        - 11-alpine
-      username:
-        from_secret: DOCKER_USERNAME
-      password:
-        from_secret: DOCKER_PASSWORD
-trigger:
-  when:
-    event: push
----
-kind: pipeline
-type: kubernetes
-name: 11-alpine-slim
-
-steps:
-  - name: docker
-    image: plugins/docker
+        - slim
+      authjson_docker:
+        from_secret: DOCKER_AUTH
+  - name: jre
+    image: harbor.v2.dcas.dev/library/drone-kaniko
+    pull: always
     settings:
-      repo: djcass44/adoptopenjdk-spring-base
-      dockerfile: 11/alpine/slim/Dockerfile
+      registry: index.docker.io/djcass44
+      repo: adoptopenjdk-spring-base
+      cache: false
+      dockerfile: /drone/src/11/alpine/jre/Dockerfile
       tags:
-        - 11-alpine-slim
-      username:
-        from_secret: DOCKER_USERNAME
-      password:
-        from_secret: DOCKER_PASSWORD
-trigger:
-  when:
-    event: push
----
-kind: pipeline
-type: kubernetes
-name: 11-alpine-jre
-
-steps:
-  - name: docker
-    image: plugins/docker
-    settings:
-      repo: djcass44/adoptopenjdk-spring-base
-      dockerfile: 11/alpine/jre/Dockerfile
-      tags:
-        - 11-alpine-jre
-      username:
-        from_secret: DOCKER_USERNAME
-      password:
-        from_secret: DOCKER_PASSWORD
+        - jre
+      authjson_docker:
+        from_secret: DOCKER_AUTH
 trigger:
   when:
     event: push
@@ -64,57 +37,30 @@ type: kubernetes
 name: 11-debian
 
 steps:
-  - name: docker
-    image: plugins/docker
+  - name: slim
+    image: harbor.v2.dcas.dev/library/drone-kaniko
+    pull: always
     settings:
-      repo: djcass44/adoptopenjdk-spring-base
-      dockerfile: 11/debian/Dockerfile
+      registry: index.docker.io/djcass44
+      repo: adoptopenjdk-spring-base
+      cache: false
+      dockerfile: /drone/src/11/debian/slim/Dockerfile
       tags:
-        - 11-debian
-      username:
-        from_secret: DOCKER_USERNAME
-      password:
-        from_secret: DOCKER_PASSWORD
-trigger:
-  when:
-    event: push
----
-kind: pipeline
-type: kubernetes
-name: 11-debian-slim
-
-steps:
-  - name: docker
-    image: plugins/docker
+        - slim
+      authjson_docker:
+        from_secret: DOCKER_AUTH
+  - name: jre
+    image: harbor.v2.dcas.dev/library/drone-kaniko
+    pull: always
     settings:
-      repo: djcass44/adoptopenjdk-spring-base
-      dockerfile: 11/debian/slim/Dockerfile
+      registry: index.docker.io/djcass44
+      repo: adoptopenjdk-spring-base
+      cache: false
+      dockerfile: /drone/src/11/debian/jre/Dockerfile
       tags:
-        - 11-debian-slim
-      username:
-        from_secret: DOCKER_USERNAME
-      password:
-        from_secret: DOCKER_PASSWORD
-trigger:
-  when:
-    event: push
----
-kind: pipeline
-type: kubernetes
-name: 11-debian-jre
-
-steps:
-  - name: docker
-    image: plugins/docker
-    settings:
-      repo: djcass44/adoptopenjdk-spring-base
-      dockerfile: 11/debian/jre/Dockerfile
-      tags:
-        - 11-debian-jre
-      username:
-        from_secret: DOCKER_USERNAME
-      password:
-        from_secret: DOCKER_PASSWORD
+        - jre
+      authjson_docker:
+        from_secret: DOCKER_AUTH
 trigger:
   when:
     event: push
@@ -124,57 +70,30 @@ type: kubernetes
 name: 11-openj9-alpine
 
 steps:
-  - name: docker
-    image: plugins/docker
+  - name: slim
+    image: harbor.v2.dcas.dev/library/drone-kaniko
+    pull: always
     settings:
-      repo: djcass44/adoptopenjdk-spring-base
-      dockerfile: 11-openj9/alpine/Dockerfile
+      registry: index.docker.io/djcass44
+      repo: adoptopenjdk-spring-base
+      cache: false
+      dockerfile: /drone/src/11-openj9/alpine/slim/Dockerfile
       tags:
-        - 11-openj9-alpine
-      username:
-        from_secret: DOCKER_USERNAME
-      password:
-        from_secret: DOCKER_PASSWORD
-trigger:
-  when:
-    event: push
----
-kind: pipeline
-type: kubernetes
-name: 11-openj9-alpine-slim
-
-steps:
-  - name: docker
-    image: plugins/docker
+        - slim
+      authjson_docker:
+        from_secret: DOCKER_AUTH
+  - name: jre
+    image: harbor.v2.dcas.dev/library/drone-kaniko
+    pull: always
     settings:
-      repo: djcass44/adoptopenjdk-spring-base
-      dockerfile: 11-openj9/alpine/slim/Dockerfile
+      registry: index.docker.io/djcass44
+      repo: adoptopenjdk-spring-base
+      cache: false
+      dockerfile: /drone/src/11-openj9/alpine/jre/Dockerfile
       tags:
-        - 11-openj9-alpine-slim
-      username:
-        from_secret: DOCKER_USERNAME
-      password:
-        from_secret: DOCKER_PASSWORD
-trigger:
-  when:
-    event: push
----
-kind: pipeline
-type: kubernetes
-name: 11-openj9-alpine-jre
-
-steps:
-  - name: docker
-    image: plugins/docker
-    settings:
-      repo: djcass44/adoptopenjdk-spring-base
-      dockerfile: 11-openj9/alpine/jre/Dockerfile
-      tags:
-        - 11-openj9-alpine-jre
-      username:
-        from_secret: DOCKER_USERNAME
-      password:
-        from_secret: DOCKER_PASSWORD
+        - jre
+      authjson_docker:
+        from_secret: DOCKER_AUTH
 trigger:
   when:
     event: push
@@ -184,57 +103,30 @@ type: kubernetes
 name: 11-openj9-debian
 
 steps:
-  - name: docker
-    image: plugins/docker
+  - name: slim
+    image: harbor.v2.dcas.dev/library/drone-kaniko
+    pull: always
     settings:
-      repo: djcass44/adoptopenjdk-spring-base
-      dockerfile: 11-openj9/debian/Dockerfile
+      registry: index.docker.io/djcass44
+      repo: adoptopenjdk-spring-base
+      cache: false
+      dockerfile: /drone/src/11-openj9/debian/slim/Dockerfile
       tags:
-        - 11-openj9-debian
-      username:
-        from_secret: DOCKER_USERNAME
-      password:
-        from_secret: DOCKER_PASSWORD
-trigger:
-  when:
-    event: push
----
-kind: pipeline
-type: kubernetes
-name: 11-openj9-debian-slim
-
-steps:
-  - name: docker
-    image: plugins/docker
+        - slim
+      authjson_docker:
+        from_secret: DOCKER_AUTH
+  - name: jre
+    image: harbor.v2.dcas.dev/library/drone-kaniko
+    pull: always
     settings:
-      repo: djcass44/adoptopenjdk-spring-base
-      dockerfile: 11-openj9/debian/slim/Dockerfile
+      registry: index.docker.io/djcass44
+      repo: adoptopenjdk-spring-base
+      cache: false
+      dockerfile: /drone/src/11-openj9/debian/jre/Dockerfile
       tags:
-        - 11-openj9-debian-slim
-      username:
-        from_secret: DOCKER_USERNAME
-      password:
-        from_secret: DOCKER_PASSWORD
-trigger:
-  when:
-    event: push
----
-kind: pipeline
-type: kubernetes
-name: 11-openj9-debian-jre
-
-steps:
-  - name: docker
-    image: plugins/docker
-    settings:
-      repo: djcass44/adoptopenjdk-spring-base
-      dockerfile: 11-openj9/debian/jre/Dockerfile
-      tags:
-        - 11-openj9-debian-jre
-      username:
-        from_secret: DOCKER_USERNAME
-      password:
-        from_secret: DOCKER_PASSWORD
+        - jre
+      authjson_docker:
+        from_secret: DOCKER_AUTH
 trigger:
   when:
     event: push
@@ -244,57 +136,30 @@ type: kubernetes
 name: 12-alpine
 
 steps:
-  - name: docker
-    image: plugins/docker
+  - name: slim
+    image: harbor.v2.dcas.dev/library/drone-kaniko
+    pull: always
     settings:
-      repo: djcass44/adoptopenjdk-spring-base
-      dockerfile: 12/alpine/Dockerfile
+      registry: index.docker.io/djcass44
+      repo: adoptopenjdk-spring-base
+      cache: false
+      dockerfile: /drone/src/12/alpine/slim/Dockerfile
       tags:
-        - 12-alpine
-      username:
-        from_secret: DOCKER_USERNAME
-      password:
-        from_secret: DOCKER_PASSWORD
-trigger:
-  when:
-    event: push
----
-kind: pipeline
-type: kubernetes
-name: 12-alpine-slim
-
-steps:
-  - name: docker
-    image: plugins/docker
+        - slim
+      authjson_docker:
+        from_secret: DOCKER_AUTH
+  - name: jre
+    image: harbor.v2.dcas.dev/library/drone-kaniko
+    pull: always
     settings:
-      repo: djcass44/adoptopenjdk-spring-base
-      dockerfile: 12/alpine/slim/Dockerfile
+      registry: index.docker.io/djcass44
+      repo: adoptopenjdk-spring-base
+      cache: false
+      dockerfile: /drone/src/12/alpine/jre/Dockerfile
       tags:
-        - 12-alpine-slim
-      username:
-        from_secret: DOCKER_USERNAME
-      password:
-        from_secret: DOCKER_PASSWORD
-trigger:
-  when:
-    event: push
----
-kind: pipeline
-type: kubernetes
-name: 12-alpine-jre
-
-steps:
-  - name: docker
-    image: plugins/docker
-    settings:
-      repo: djcass44/adoptopenjdk-spring-base
-      dockerfile: 12/alpine/jre/Dockerfile
-      tags:
-        - 12-alpine-jre
-      username:
-        from_secret: DOCKER_USERNAME
-      password:
-        from_secret: DOCKER_PASSWORD
+        - jre
+      authjson_docker:
+        from_secret: DOCKER_AUTH
 trigger:
   when:
     event: push
@@ -304,57 +169,30 @@ type: kubernetes
 name: 12-debian
 
 steps:
-  - name: docker
-    image: plugins/docker
+  - name: slim
+    image: harbor.v2.dcas.dev/library/drone-kaniko
+    pull: always
     settings:
-      repo: djcass44/adoptopenjdk-spring-base
-      dockerfile: 12/debian/Dockerfile
+      registry: index.docker.io/djcass44
+      repo: adoptopenjdk-spring-base
+      cache: false
+      dockerfile: /drone/src/12/debian/slim/Dockerfile
       tags:
-        - 12-debian
-      username:
-        from_secret: DOCKER_USERNAME
-      password:
-        from_secret: DOCKER_PASSWORD
-trigger:
-  when:
-    event: push
----
-kind: pipeline
-type: kubernetes
-name: 12-debian-slim
-
-steps:
-  - name: docker
-    image: plugins/docker
+        - slim
+      authjson_docker:
+        from_secret: DOCKER_AUTH
+  - name: jre
+    image: harbor.v2.dcas.dev/library/drone-kaniko
+    pull: always
     settings:
-      repo: djcass44/adoptopenjdk-spring-base
-      dockerfile: 12/debian/slim/Dockerfile
+      registry: index.docker.io/djcass44
+      repo: adoptopenjdk-spring-base
+      cache: false
+      dockerfile: /drone/src/12/debian/jre/Dockerfile
       tags:
-        - 12-debian-slim
-      username:
-        from_secret: DOCKER_USERNAME
-      password:
-        from_secret: DOCKER_PASSWORD
-trigger:
-  when:
-    event: push
----
-kind: pipeline
-type: kubernetes
-name: 12-debian-jre
-
-steps:
-  - name: docker
-    image: plugins/docker
-    settings:
-      repo: djcass44/adoptopenjdk-spring-base
-      dockerfile: 12/debian/jre/Dockerfile
-      tags:
-        - 12-debian-jre
-      username:
-        from_secret: DOCKER_USERNAME
-      password:
-        from_secret: DOCKER_PASSWORD
+        - jre
+      authjson_docker:
+        from_secret: DOCKER_AUTH
 trigger:
   when:
     event: push
@@ -364,57 +202,30 @@ type: kubernetes
 name: 12-openj9-alpine
 
 steps:
-  - name: docker
-    image: plugins/docker
+  - name: slim
+    image: harbor.v2.dcas.dev/library/drone-kaniko
+    pull: always
     settings:
-      repo: djcass44/adoptopenjdk-spring-base
-      dockerfile: 12-openj9/alpine/Dockerfile
+      registry: index.docker.io/djcass44
+      repo: adoptopenjdk-spring-base
+      cache: false
+      dockerfile: /drone/src/12-openj9/alpine/slim/Dockerfile
       tags:
-        - 12-openj9-alpine
-      username:
-        from_secret: DOCKER_USERNAME
-      password:
-        from_secret: DOCKER_PASSWORD
-trigger:
-  when:
-    event: push
----
-kind: pipeline
-type: kubernetes
-name: 12-openj9-alpine-slim
-
-steps:
-  - name: docker
-    image: plugins/docker
+        - slim
+      authjson_docker:
+        from_secret: DOCKER_AUTH
+  - name: jre
+    image: harbor.v2.dcas.dev/library/drone-kaniko
+    pull: always
     settings:
-      repo: djcass44/adoptopenjdk-spring-base
-      dockerfile: 12-openj9/alpine/slim/Dockerfile
+      registry: index.docker.io/djcass44
+      repo: adoptopenjdk-spring-base
+      cache: false
+      dockerfile: /drone/src/12-openj9/alpine/jre/Dockerfile
       tags:
-        - 12-openj9-alpine-slim
-      username:
-        from_secret: DOCKER_USERNAME
-      password:
-        from_secret: DOCKER_PASSWORD
-trigger:
-  when:
-    event: push
----
-kind: pipeline
-type: kubernetes
-name: 12-openj9-alpine-jre
-
-steps:
-  - name: docker
-    image: plugins/docker
-    settings:
-      repo: djcass44/adoptopenjdk-spring-base
-      dockerfile: 12-openj9/alpine/jre/Dockerfile
-      tags:
-        - 12-openj9-alpine-jre
-      username:
-        from_secret: DOCKER_USERNAME
-      password:
-        from_secret: DOCKER_PASSWORD
+        - jre
+      authjson_docker:
+        from_secret: DOCKER_AUTH
 trigger:
   when:
     event: push
@@ -424,57 +235,30 @@ type: kubernetes
 name: 12-openj9-debian
 
 steps:
-  - name: docker
-    image: plugins/docker
+  - name: slim
+    image: harbor.v2.dcas.dev/library/drone-kaniko
+    pull: always
     settings:
-      repo: djcass44/adoptopenjdk-spring-base
-      dockerfile: 12-openj9/debian/Dockerfile
+      registry: index.docker.io/djcass44
+      repo: adoptopenjdk-spring-base
+      cache: false
+      dockerfile: /drone/src/12-openj9/debian/slim/Dockerfile
       tags:
-        - 12-openj9-debian
-      username:
-        from_secret: DOCKER_USERNAME
-      password:
-        from_secret: DOCKER_PASSWORD
-trigger:
-  when:
-    event: push
----
-kind: pipeline
-type: kubernetes
-name: 12-openj9-debian-slim
-
-steps:
-  - name: docker
-    image: plugins/docker
+        - slim
+      authjson_docker:
+        from_secret: DOCKER_AUTH
+  - name: jre
+    image: harbor.v2.dcas.dev/library/drone-kaniko
+    pull: always
     settings:
-      repo: djcass44/adoptopenjdk-spring-base
-      dockerfile: 12-openj9/debian/slim/Dockerfile
+      registry: index.docker.io/djcass44
+      repo: adoptopenjdk-spring-base
+      cache: false
+      dockerfile: /drone/src/12-openj9/debian/jre/Dockerfile
       tags:
-        - 12-openj9-debian-slim
-      username:
-        from_secret: DOCKER_USERNAME
-      password:
-        from_secret: DOCKER_PASSWORD
-trigger:
-  when:
-    event: push
----
-kind: pipeline
-type: kubernetes
-name: 12-openj9-debian-jre
-
-steps:
-  - name: docker
-    image: plugins/docker
-    settings:
-      repo: djcass44/adoptopenjdk-spring-base
-      dockerfile: 12-openj9/debian/jre/Dockerfile
-      tags:
-        - 12-openj9-debian-jre
-      username:
-        from_secret: DOCKER_USERNAME
-      password:
-        from_secret: DOCKER_PASSWORD
+        - jre
+      authjson_docker:
+        from_secret: DOCKER_AUTH
 trigger:
   when:
     event: push
@@ -484,57 +268,30 @@ type: kubernetes
 name: 13-alpine
 
 steps:
-  - name: docker
-    image: plugins/docker
+  - name: slim
+    image: harbor.v2.dcas.dev/library/drone-kaniko
+    pull: always
     settings:
-      repo: djcass44/adoptopenjdk-spring-base
-      dockerfile: 13/alpine/Dockerfile
+      registry: index.docker.io/djcass44
+      repo: adoptopenjdk-spring-base
+      cache: false
+      dockerfile: /drone/src/13/alpine/slim/Dockerfile
       tags:
-        - 13-alpine
-      username:
-        from_secret: DOCKER_USERNAME
-      password:
-        from_secret: DOCKER_PASSWORD
-trigger:
-  when:
-    event: push
----
-kind: pipeline
-type: kubernetes
-name: 13-alpine-slim
-
-steps:
-  - name: docker
-    image: plugins/docker
+        - slim
+      authjson_docker:
+        from_secret: DOCKER_AUTH
+  - name: jre
+    image: harbor.v2.dcas.dev/library/drone-kaniko
+    pull: always
     settings:
-      repo: djcass44/adoptopenjdk-spring-base
-      dockerfile: 13/alpine/slim/Dockerfile
+      registry: index.docker.io/djcass44
+      repo: adoptopenjdk-spring-base
+      cache: false
+      dockerfile: /drone/src/13/alpine/jre/Dockerfile
       tags:
-        - 13-alpine-slim
-      username:
-        from_secret: DOCKER_USERNAME
-      password:
-        from_secret: DOCKER_PASSWORD
-trigger:
-  when:
-    event: push
----
-kind: pipeline
-type: kubernetes
-name: 13-alpine-jre
-
-steps:
-  - name: docker
-    image: plugins/docker
-    settings:
-      repo: djcass44/adoptopenjdk-spring-base
-      dockerfile: 13/alpine/jre/Dockerfile
-      tags:
-        - 13-alpine-jre
-      username:
-        from_secret: DOCKER_USERNAME
-      password:
-        from_secret: DOCKER_PASSWORD
+        - jre
+      authjson_docker:
+        from_secret: DOCKER_AUTH
 trigger:
   when:
     event: push
@@ -544,57 +301,30 @@ type: kubernetes
 name: 13-debian
 
 steps:
-  - name: docker
-    image: plugins/docker
+  - name: slim
+    image: harbor.v2.dcas.dev/library/drone-kaniko
+    pull: always
     settings:
-      repo: djcass44/adoptopenjdk-spring-base
-      dockerfile: 13/debian/Dockerfile
+      registry: index.docker.io/djcass44
+      repo: adoptopenjdk-spring-base
+      cache: false
+      dockerfile: /drone/src/13/debian/slim/Dockerfile
       tags:
-        - 13-debian
-      username:
-        from_secret: DOCKER_USERNAME
-      password:
-        from_secret: DOCKER_PASSWORD
-trigger:
-  when:
-    event: push
----
-kind: pipeline
-type: kubernetes
-name: 13-debian-slim
-
-steps:
-  - name: docker
-    image: plugins/docker
+        - slim
+      authjson_docker:
+        from_secret: DOCKER_AUTH
+  - name: jre
+    image: harbor.v2.dcas.dev/library/drone-kaniko
+    pull: always
     settings:
-      repo: djcass44/adoptopenjdk-spring-base
-      dockerfile: 13/debian/slim/Dockerfile
+      registry: index.docker.io/djcass44
+      repo: adoptopenjdk-spring-base
+      cache: false
+      dockerfile: /drone/src/13/debian/jre/Dockerfile
       tags:
-        - 13-debian-slim
-      username:
-        from_secret: DOCKER_USERNAME
-      password:
-        from_secret: DOCKER_PASSWORD
-trigger:
-  when:
-    event: push
----
-kind: pipeline
-type: kubernetes
-name: 13-debian-jre
-
-steps:
-  - name: docker
-    image: plugins/docker
-    settings:
-      repo: djcass44/adoptopenjdk-spring-base
-      dockerfile: 13/debian/jre/Dockerfile
-      tags:
-        - 13-debian-jre
-      username:
-        from_secret: DOCKER_USERNAME
-      password:
-        from_secret: DOCKER_PASSWORD
+        - jre
+      authjson_docker:
+        from_secret: DOCKER_AUTH
 trigger:
   when:
     event: push
@@ -604,57 +334,30 @@ type: kubernetes
 name: 13-openj9-alpine
 
 steps:
-  - name: docker
-    image: plugins/docker
+  - name: slim
+    image: harbor.v2.dcas.dev/library/drone-kaniko
+    pull: always
     settings:
-      repo: djcass44/adoptopenjdk-spring-base
-      dockerfile: 13-openj9/alpine/Dockerfile
+      registry: index.docker.io/djcass44
+      repo: adoptopenjdk-spring-base
+      cache: false
+      dockerfile: /drone/src/13-openj9/alpine/slim/Dockerfile
       tags:
-        - 13-openj9-alpine
-      username:
-        from_secret: DOCKER_USERNAME
-      password:
-        from_secret: DOCKER_PASSWORD
-trigger:
-  when:
-    event: push
----
-kind: pipeline
-type: kubernetes
-name: 13-openj9-alpine-slim
-
-steps:
-  - name: docker
-    image: plugins/docker
+        - slim
+      authjson_docker:
+        from_secret: DOCKER_AUTH
+  - name: jre
+    image: harbor.v2.dcas.dev/library/drone-kaniko
+    pull: always
     settings:
-      repo: djcass44/adoptopenjdk-spring-base
-      dockerfile: 13-openj9/alpine/slim/Dockerfile
+      registry: index.docker.io/djcass44
+      repo: adoptopenjdk-spring-base
+      cache: false
+      dockerfile: /drone/src/13-openj9/alpine/jre/Dockerfile
       tags:
-        - 13-openj9-alpine-slim
-      username:
-        from_secret: DOCKER_USERNAME
-      password:
-        from_secret: DOCKER_PASSWORD
-trigger:
-  when:
-    event: push
----
-kind: pipeline
-type: kubernetes
-name: 13-openj9-alpine-jre
-
-steps:
-  - name: docker
-    image: plugins/docker
-    settings:
-      repo: djcass44/adoptopenjdk-spring-base
-      dockerfile: 13-openj9/alpine/jre/Dockerfile
-      tags:
-        - 13-openj9-alpine-jre
-      username:
-        from_secret: DOCKER_USERNAME
-      password:
-        from_secret: DOCKER_PASSWORD
+        - jre
+      authjson_docker:
+        from_secret: DOCKER_AUTH
 trigger:
   when:
     event: push
@@ -664,57 +367,162 @@ type: kubernetes
 name: 13-openj9-debian
 
 steps:
-  - name: docker
-    image: plugins/docker
+  - name: slim
+    image: harbor.v2.dcas.dev/library/drone-kaniko
+    pull: always
     settings:
-      repo: djcass44/adoptopenjdk-spring-base
-      dockerfile: 13-openj9/debian/Dockerfile
+      registry: index.docker.io/djcass44
+      repo: adoptopenjdk-spring-base
+      cache: false
+      dockerfile: /drone/src/13-openj9/debian/slim/Dockerfile
       tags:
-        - 13-openj9-debian
-      username:
-        from_secret: DOCKER_USERNAME
-      password:
-        from_secret: DOCKER_PASSWORD
+        - slim
+      authjson_docker:
+        from_secret: DOCKER_AUTH
+  - name: jre
+    image: harbor.v2.dcas.dev/library/drone-kaniko
+    pull: always
+    settings:
+      registry: index.docker.io/djcass44
+      repo: adoptopenjdk-spring-base
+      cache: false
+      dockerfile: /drone/src/13-openj9/debian/jre/Dockerfile
+      tags:
+        - jre
+      authjson_docker:
+        from_secret: DOCKER_AUTH
 trigger:
   when:
     event: push
 ---
 kind: pipeline
 type: kubernetes
-name: 13-openj9-debian-slim
+name: 14-alpine
 
 steps:
-  - name: docker
-    image: plugins/docker
+  - name: slim
+    image: harbor.v2.dcas.dev/library/drone-kaniko
+    pull: always
     settings:
-      repo: djcass44/adoptopenjdk-spring-base
-      dockerfile: 13-openj9/debian/slim/Dockerfile
+      registry: index.docker.io/djcass44
+      repo: adoptopenjdk-spring-base
+      cache: false
+      dockerfile: /drone/src/14/alpine/slim/Dockerfile
       tags:
-        - 13-openj9-debian-slim
-      username:
-        from_secret: DOCKER_USERNAME
-      password:
-        from_secret: DOCKER_PASSWORD
+        - slim
+      authjson_docker:
+        from_secret: DOCKER_AUTH
+  - name: jre
+    image: harbor.v2.dcas.dev/library/drone-kaniko
+    pull: always
+    settings:
+      registry: index.docker.io/djcass44
+      repo: adoptopenjdk-spring-base
+      cache: false
+      dockerfile: /drone/src/14/alpine/jre/Dockerfile
+      tags:
+        - jre
+      authjson_docker:
+        from_secret: DOCKER_AUTH
 trigger:
   when:
     event: push
 ---
 kind: pipeline
 type: kubernetes
-name: 13-openj9-debian-jre
+name: 14-debian
 
 steps:
-  - name: docker
-    image: plugins/docker
+  - name: slim
+    image: harbor.v2.dcas.dev/library/drone-kaniko
+    pull: always
     settings:
-      repo: djcass44/adoptopenjdk-spring-base
-      dockerfile: 13-openj9/debian/jre/Dockerfile
+      registry: index.docker.io/djcass44
+      repo: adoptopenjdk-spring-base
+      cache: false
+      dockerfile: /drone/src/14/debian/slim/Dockerfile
       tags:
-        - 13-openj9-debian-jre
-      username:
-        from_secret: DOCKER_USERNAME
-      password:
-        from_secret: DOCKER_PASSWORD
+        - slim
+      authjson_docker:
+        from_secret: DOCKER_AUTH
+  - name: jre
+    image: harbor.v2.dcas.dev/library/drone-kaniko
+    pull: always
+    settings:
+      registry: index.docker.io/djcass44
+      repo: adoptopenjdk-spring-base
+      cache: false
+      dockerfile: /drone/src/14/debian/jre/Dockerfile
+      tags:
+        - jre
+      authjson_docker:
+        from_secret: DOCKER_AUTH
+trigger:
+  when:
+    event: push
+---
+kind: pipeline
+type: kubernetes
+name: 14-openj9-alpine
+
+steps:
+  - name: slim
+    image: harbor.v2.dcas.dev/library/drone-kaniko
+    pull: always
+    settings:
+      registry: index.docker.io/djcass44
+      repo: adoptopenjdk-spring-base
+      cache: false
+      dockerfile: /drone/src/14-openj9/alpine/slim/Dockerfile
+      tags:
+        - slim
+      authjson_docker:
+        from_secret: DOCKER_AUTH
+  - name: jre
+    image: harbor.v2.dcas.dev/library/drone-kaniko
+    pull: always
+    settings:
+      registry: index.docker.io/djcass44
+      repo: adoptopenjdk-spring-base
+      cache: false
+      dockerfile: /drone/src/14-openj9/alpine/jre/Dockerfile
+      tags:
+        - jre
+      authjson_docker:
+        from_secret: DOCKER_AUTH
+trigger:
+  when:
+    event: push
+---
+kind: pipeline
+type: kubernetes
+name: 14-openj9-debian
+
+steps:
+  - name: slim
+    image: harbor.v2.dcas.dev/library/drone-kaniko
+    pull: always
+    settings:
+      registry: index.docker.io/djcass44
+      repo: adoptopenjdk-spring-base
+      cache: false
+      dockerfile: /drone/src/14-openj9/debian/slim/Dockerfile
+      tags:
+        - slim
+      authjson_docker:
+        from_secret: DOCKER_AUTH
+  - name: jre
+    image: harbor.v2.dcas.dev/library/drone-kaniko
+    pull: always
+    settings:
+      registry: index.docker.io/djcass44
+      repo: adoptopenjdk-spring-base
+      cache: false
+      dockerfile: /drone/src/14-openj9/debian/jre/Dockerfile
+      tags:
+        - jre
+      authjson_docker:
+        from_secret: DOCKER_AUTH
 trigger:
   when:
     event: push
