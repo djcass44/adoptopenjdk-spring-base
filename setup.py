@@ -44,29 +44,27 @@ name: ${version}
 
 steps:
   - name: slim
-    image: harbor.v2.dcas.dev/library/drone-kaniko
-    pull: always
+    image: plugins/docker
     settings:
-      registry: index.docker.io/djcass44
-      repo: adoptopenjdk-spring-base
-      cache: false
-      dockerfile: /drone/src/${slim-dest}
+      repo: djcass44/adoptopenjdk-spring-base
+      dockerfile: ${slim-dest}
       tags:
         - ${slim-tag}
-      authjson_docker:
-        from_secret: DOCKER_AUTH
+      username:
+        from_secret: DOCKER_USERNAME
+      password:
+        from_secret: DOCKER_PASSWORD
   - name: jre
-    image: harbor.v2.dcas.dev/library/drone-kaniko
-    pull: always
+    image: plugins/docker
     settings:
-      registry: index.docker.io/djcass44
-      repo: adoptopenjdk-spring-base
-      cache: false
-      dockerfile: /drone/src/${jre-dest}
+      repo: djcass44/adoptopenjdk-spring-base
+      dockerfile: ${jre-dest}
       tags:
         - ${jre-tag}
-      authjson_docker:
-        from_secret: DOCKER_AUTH
+      username:
+        from_secret: DOCKER_USERNAME
+      password:
+        from_secret: DOCKER_PASSWORD
 trigger:
   when:
     event: push
