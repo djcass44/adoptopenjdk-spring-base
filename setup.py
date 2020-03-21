@@ -40,7 +40,6 @@ RUN apt-get update && \
 
 build = """---
 kind: pipeline
-type: kubernetes
 name: ${version}
 
 steps:
