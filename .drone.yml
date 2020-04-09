@@ -9,7 +9,7 @@ steps:
       repo: djcass44/adoptopenjdk-spring-base
       dockerfile: 11/alpine/slim/Dockerfile
       tags:
-        - slim
+        - 11-alpine-slim
       username:
         from_secret: DOCKER_USERNAME
       password:
@@ -20,7 +20,7 @@ steps:
       repo: djcass44/adoptopenjdk-spring-base
       dockerfile: 11/alpine/jre/Dockerfile
       tags:
-        - jre
+        - 11-alpine-jre
       username:
         from_secret: DOCKER_USERNAME
       password:
@@ -39,7 +39,7 @@ steps:
       repo: djcass44/adoptopenjdk-spring-base
       dockerfile: 11/debian/slim/Dockerfile
       tags:
-        - slim
+        - 11-debian-slim
       username:
         from_secret: DOCKER_USERNAME
       password:
@@ -50,7 +50,7 @@ steps:
       repo: djcass44/adoptopenjdk-spring-base
       dockerfile: 11/debian/jre/Dockerfile
       tags:
-        - jre
+        - 11-debian-jre
       username:
         from_secret: DOCKER_USERNAME
       password:
@@ -69,7 +69,7 @@ steps:
       repo: djcass44/adoptopenjdk-spring-base
       dockerfile: 11-openj9/alpine/slim/Dockerfile
       tags:
-        - slim
+        - 11-openj9-alpine-slim
       username:
         from_secret: DOCKER_USERNAME
       password:
@@ -80,7 +80,7 @@ steps:
       repo: djcass44/adoptopenjdk-spring-base
       dockerfile: 11-openj9/alpine/jre/Dockerfile
       tags:
-        - jre
+        - 11-openj9-alpine-jre
       username:
         from_secret: DOCKER_USERNAME
       password:
@@ -99,7 +99,7 @@ steps:
       repo: djcass44/adoptopenjdk-spring-base
       dockerfile: 11-openj9/debian/slim/Dockerfile
       tags:
-        - slim
+        - 11-openj9-debian-slim
       username:
         from_secret: DOCKER_USERNAME
       password:
@@ -110,7 +110,7 @@ steps:
       repo: djcass44/adoptopenjdk-spring-base
       dockerfile: 11-openj9/debian/jre/Dockerfile
       tags:
-        - jre
+        - 11-openj9-debian-jre
       username:
         from_secret: DOCKER_USERNAME
       password:
@@ -129,7 +129,7 @@ steps:
       repo: djcass44/adoptopenjdk-spring-base
       dockerfile: 12/alpine/slim/Dockerfile
       tags:
-        - slim
+        - 12-alpine-slim
       username:
         from_secret: DOCKER_USERNAME
       password:
@@ -140,7 +140,7 @@ steps:
       repo: djcass44/adoptopenjdk-spring-base
       dockerfile: 12/alpine/jre/Dockerfile
       tags:
-        - jre
+        - 12-alpine-jre
       username:
         from_secret: DOCKER_USERNAME
       password:
@@ -159,7 +159,7 @@ steps:
       repo: djcass44/adoptopenjdk-spring-base
       dockerfile: 12/debian/slim/Dockerfile
       tags:
-        - slim
+        - 12-debian-slim
       username:
         from_secret: DOCKER_USERNAME
       password:
@@ -170,7 +170,7 @@ steps:
       repo: djcass44/adoptopenjdk-spring-base
       dockerfile: 12/debian/jre/Dockerfile
       tags:
-        - jre
+        - 12-debian-jre
       username:
         from_secret: DOCKER_USERNAME
       password:
@@ -189,7 +189,7 @@ steps:
       repo: djcass44/adoptopenjdk-spring-base
       dockerfile: 12-openj9/alpine/slim/Dockerfile
       tags:
-        - slim
+        - 12-openj9-alpine-slim
       username:
         from_secret: DOCKER_USERNAME
       password:
@@ -200,7 +200,7 @@ steps:
       repo: djcass44/adoptopenjdk-spring-base
       dockerfile: 12-openj9/alpine/jre/Dockerfile
       tags:
-        - jre
+        - 12-openj9-alpine-jre
       username:
         from_secret: DOCKER_USERNAME
       password:
@@ -219,7 +219,7 @@ steps:
       repo: djcass44/adoptopenjdk-spring-base
       dockerfile: 12-openj9/debian/slim/Dockerfile
       tags:
-        - slim
+        - 12-openj9-debian-slim
       username:
         from_secret: DOCKER_USERNAME
       password:
@@ -230,7 +230,7 @@ steps:
       repo: djcass44/adoptopenjdk-spring-base
       dockerfile: 12-openj9/debian/jre/Dockerfile
       tags:
-        - jre
+        - 12-openj9-debian-jre
       username:
         from_secret: DOCKER_USERNAME
       password:
@@ -249,7 +249,7 @@ steps:
       repo: djcass44/adoptopenjdk-spring-base
       dockerfile: 13/alpine/slim/Dockerfile
       tags:
-        - slim
+        - 13-alpine-slim
       username:
         from_secret: DOCKER_USERNAME
       password:
@@ -260,7 +260,7 @@ steps:
       repo: djcass44/adoptopenjdk-spring-base
       dockerfile: 13/alpine/jre/Dockerfile
       tags:
-        - jre
+        - 13-alpine-jre
       username:
         from_secret: DOCKER_USERNAME
       password:
@@ -279,7 +279,7 @@ steps:
       repo: djcass44/adoptopenjdk-spring-base
       dockerfile: 13/debian/slim/Dockerfile
       tags:
-        - slim
+        - 13-debian-slim
       username:
         from_secret: DOCKER_USERNAME
       password:
@@ -290,7 +290,7 @@ steps:
       repo: djcass44/adoptopenjdk-spring-base
       dockerfile: 13/debian/jre/Dockerfile
       tags:
-        - jre
+        - 13-debian-jre
       username:
         from_secret: DOCKER_USERNAME
       password:
@@ -309,7 +309,7 @@ steps:
       repo: djcass44/adoptopenjdk-spring-base
       dockerfile: 13-openj9/alpine/slim/Dockerfile
       tags:
-        - slim
+        - 13-openj9-alpine-slim
       username:
         from_secret: DOCKER_USERNAME
       password:
@@ -320,7 +320,7 @@ steps:
       repo: djcass44/adoptopenjdk-spring-base
       dockerfile: 13-openj9/alpine/jre/Dockerfile
       tags:
-        - jre
+        - 13-openj9-alpine-jre
       username:
         from_secret: DOCKER_USERNAME
       password:
@@ -339,7 +339,7 @@ steps:
       repo: djcass44/adoptopenjdk-spring-base
       dockerfile: 13-openj9/debian/slim/Dockerfile
       tags:
-        - slim
+        - 13-openj9-debian-slim
       username:
         from_secret: DOCKER_USERNAME
       password:
@@ -350,7 +350,7 @@ steps:
       repo: djcass44/adoptopenjdk-spring-base
       dockerfile: 13-openj9/debian/jre/Dockerfile
       tags:
-        - jre
+        - 13-openj9-debian-jre
       username:
         from_secret: DOCKER_USERNAME
       password:
@@ -369,6 +369,8 @@ steps:
       repo: djcass44/adoptopenjdk-spring-base
       dockerfile: 14/alpine/slim/Dockerfile
       tags:
+        - 14-alpine-slim
+        - alpine-slim
         - slim
       username:
         from_secret: DOCKER_USERNAME
@@ -380,6 +382,8 @@ steps:
       repo: djcass44/adoptopenjdk-spring-base
       dockerfile: 14/alpine/jre/Dockerfile
       tags:
+        - 14-alpine-jre
+        - alpine-jre
         - jre
       username:
         from_secret: DOCKER_USERNAME
@@ -399,7 +403,8 @@ steps:
       repo: djcass44/adoptopenjdk-spring-base
       dockerfile: 14/debian/slim/Dockerfile
       tags:
-        - slim
+        - 14-debian-slim
+        - debian-slim
       username:
         from_secret: DOCKER_USERNAME
       password:
@@ -410,7 +415,8 @@ steps:
       repo: djcass44/adoptopenjdk-spring-base
       dockerfile: 14/debian/jre/Dockerfile
       tags:
-        - jre
+        - 14-debian-jre
+        - debian-jre
       username:
         from_secret: DOCKER_USERNAME
       password:
@@ -429,7 +435,7 @@ steps:
       repo: djcass44/adoptopenjdk-spring-base
       dockerfile: 14-openj9/alpine/slim/Dockerfile
       tags:
-        - slim
+        - 14-openj9-alpine-slim
       username:
         from_secret: DOCKER_USERNAME
       password:
@@ -440,7 +446,7 @@ steps:
       repo: djcass44/adoptopenjdk-spring-base
       dockerfile: 14-openj9/alpine/jre/Dockerfile
       tags:
-        - jre
+        - 14-openj9-alpine-jre
       username:
         from_secret: DOCKER_USERNAME
       password:
@@ -459,7 +465,7 @@ steps:
       repo: djcass44/adoptopenjdk-spring-base
       dockerfile: 14-openj9/debian/slim/Dockerfile
       tags:
-        - slim
+        - 14-openj9-debian-slim
       username:
         from_secret: DOCKER_USERNAME
       password:
@@ -470,7 +476,7 @@ steps:
       repo: djcass44/adoptopenjdk-spring-base
       dockerfile: 14-openj9/debian/jre/Dockerfile
       tags:
-        - jre
+        - 14-openj9-debian-jre
       username:
         from_secret: DOCKER_USERNAME
       password:

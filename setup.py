@@ -78,7 +78,14 @@ def export_build(jdk, distro):
     subtypes = versions[distro]
     for s in subtypes:
         data = data.replace(f"${{{s}-dest}}", f"{jdk}/{distro}/{s}/Dockerfile")
-        data = data.replace(f"${{{s}-tag}}", s)
+        # get the latest non-j9 jdk
+        if str(jdk).startswith("14") and len(str(jdk)) == 2:
+            if distro == "alpine":
+                data = data.replace(f"${{{s}-tag}}", f"{version}-{s}\n        - {distro}-{s}\n        - {s}")
+            else:
+                data = data.replace(f"${{{s}-tag}}", f"{version}-{s}\n        - {distro}-{s}")
+        else:
+            data = data.replace(f"${{{s}-tag}}", f"{version}-{s}")
     with open(".drone.yml", "a") as f:
         f.write(data)
 
